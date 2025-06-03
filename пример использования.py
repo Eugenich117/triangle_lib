@@ -1,7 +1,7 @@
 from tensorflow.keras.models import load_model
 import joblib
 import numpy as np
-
+import math as m
 # Загрузка модели и масштабировщиков
 model = load_model('my_model.keras')
 scaler_X = joblib.load('scaler_X_cpu.save')
@@ -9,9 +9,10 @@ scaler_y = joblib.load('scaler_y_cpu.save')
 
 # Пример новых входных данных:
 # S, v, rho, L, alpha, Qk (в радианах)
-
+d = 0.8
+S = (m.pi * d ** 2) / 4
 # Конус с углом 20 градусов
-new_data_cone = np.array([[1, np.deg2rad(90), 5.0, 2500, 1.2, 2.5, 0.4]])
+new_data_cone = np.array([[S, np.deg2rad(90), 5.0, 2500, 1.2, 2.5, 0.4]])
 
 # Масштабирование и предсказание
 new_data_scaled = scaler_X.transform(new_data_cone)
