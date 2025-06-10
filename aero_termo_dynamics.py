@@ -64,7 +64,7 @@ def qk_func(initial):
     V = initial['V']
     dqk = ((1.318 * 10 ** 5) / np.sqrt(0.5)) * ((ro / 1.2255) ** 0.5) * ((V / 7910) ** 3.25)
     return dqk, 'qk'
-
+#интегрируем дифур методом эйлера
 def euler(equations, initial, dt):
     # в equations пишем названия функций с уравнениями, а в initial пишем все переменные, которые нам нужны
     new_value_list = [0] * len(equations)
