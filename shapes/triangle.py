@@ -1,4 +1,4 @@
-import math
+import math as m
 from .shape import Shape
 
 class Triangle(Shape):
@@ -13,9 +13,9 @@ class Triangle(Shape):
     def area(self) -> float:
         # Формула Герона
         s = (self.a + self.b + self.c) / 2
-        return math.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
+        return m.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
 
     def is_right_angled(self) -> bool:
         # Проверяем теорему Пифагора с допуском из-за погрешности вычислений
         sides = sorted([self.a, self.b, self.c])
-        return math.isclose(sides[0] ** 2 + sides[1] ** 2, sides[2] ** 2, rel_tol=1e-9)
+        return m.isclose(sides[0] ** 2 + sides[1] ** 2, sides[2] ** 2, rel_tol=1e-9)

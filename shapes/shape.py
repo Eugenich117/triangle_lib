@@ -5,3 +5,4 @@ class Shape(ABC):
     def area(self) -> float:
         """Вычислить площадь фигуры"""
         pass
+
