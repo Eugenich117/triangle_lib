@@ -4,4 +4,5 @@ class Shape(ABC):
     @abstractmethod
     def area(self) -> float:
         """Вычислить площадь фигуры"""
-        pass
+        raise NotImplementedError("Subclasses must implement area()")
+
